@@ -16,9 +16,9 @@ import nye.progtech.gamesave.Load;
  */
 
 public class Menu {
-    private Repository stat;
-    private Map map;
-    private Player player;
+    private final Repository stat;
+    private final Map map;
+    private final Player player;
     private boolean betoltes = false;
     private final Scanner scanner = new Scanner(System.in);
 
@@ -79,7 +79,7 @@ public class Menu {
                         Load load = new Load();
                         Load.load(stat.getNev(), map);
                         map.load();
-                        // TODO
+
                     }
                     map.game(stat);
                 }
@@ -119,11 +119,11 @@ public class Menu {
                 case 1: {
                     System.out.println("Betöltés");
                     betoltes = true;
-                    // TODO
+
                 } break;
                 case 2: {
                     betoltes = false;
-                    // TODO
+
                 } break;
                 default: {
                     System.out.println("Ismeretlen parancs");
