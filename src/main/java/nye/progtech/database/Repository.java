@@ -3,7 +3,7 @@ package nye.progtech.database;
 import java.sql.*;
 
 /**
- * Jatekos adatbazis SQL szerveren.
+ * Jatekos adatbazis.
  */
 
 public class Repository {
@@ -26,7 +26,7 @@ public class Repository {
     }
 
     /**
-     * Letrehozza a tablat, ha meg nem letezik.
+     * Letrehozza a tablat, ha nem letezik.
      */
     public void createTableIfNotExists() throws SQLException {
 
@@ -43,10 +43,10 @@ public class Repository {
     }
 
     /**
-     * Frissiti a program adatait az adatbazisbol, aztan kiirja.
+     * Frissiti az állást adatbázisból és kiirja.
      */
     public void osszStat() throws SQLException {
-        System.out.println("Mentés állapota: ");
+        System.out.println("Állapota: ");
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery("SELECT * FROM PLAYERDATABASE WHERE NEV = '" + nev + "'");
         while (rs.next()) {
@@ -66,10 +66,9 @@ public class Repository {
     }
 
     /**
-     * Lekeri az adatbazisbol az osszesitett statot, aztan frissiti az adatbazist azaltal,
-     * hogy hozzaadja az eddig osszesitetthez a jelenlegi jatekallas soran jatszott eredmenyeket.
+     * Lekéri az eredményeket és utáni frissiti.
      */
-    public void statValtozas() throws SQLException {
+    public void statUpdate() throws SQLException {
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery("SELECT * FROM PLAYERDATABASE WHERE NEV = '" + nev + "'");
         while (rs.next()) {
@@ -96,23 +95,23 @@ public class Repository {
     }
 
     /**
-     * Ezeket megnoveljuk gyozelem eseten.
+     * Ha a játékos nyer akkor megnöveljük a győzelmek számát.
      */
-    public void gyozelem() {
+    public void win() {
         gyozelmekSzama++;
         jatszottMeccsekSzama++;
     }
 
     /**
-     * Ezeket megnoveljuk vereseg eseten.
+     * Vereség esetén a vesztések számát növeljük.
      */
-    public void vereseg() {
+    public void lose() {
         veresegekSzama++;
         jatszottMeccsekSzama++;
     }
 
     /**
-     * Kilistazza a jatekosokat nyert meccsek alapjan sorrendben.
+     * Kilistazza a jatekosokat.
      */
     public void scoreBoard() throws SQLException {
         String s = "SELECT NEV, GYOZELMEK FROM PLAYERDATABASE ORDER BY GYOZELMEK DESC";

@@ -40,7 +40,7 @@ public class Menu {
         while (true) {
             start = scanner.next().charAt(0);
             if (start == 'n' || start == 'N') {
-                System.out.println("Viszlát máskor");
+                System.out.println("Viszlát");
                 System.exit(0);
             } else if (start == 'i' || start == 'I') {
                 System.out.println("Jó játékot!\n");
@@ -58,20 +58,20 @@ public class Menu {
     }
 
     /**
-     * Eldonthetjuk mit szeretnenk csinalni.
+     * Menu
      */
     public void menu() throws SQLException, JAXBException {
         while (true) {
             System.out.println();
             System.out.println("1 = Játék indítása");
-            System.out.println("2 = Statisztikák megjelenítése");
+            System.out.println("2 = Statisztikák");
             System.out.println("3 = Scoreboard");
-            System.out.println("4 = Kilépés a játékból");
-            System.out.println("----------------------");
+            System.out.println("4 = Kilépés");
+            System.out.println();
             int valasztas = scanner.nextInt();
             switch (valasztas) {
                 case 1: {
-                    mentettJatekBetoltes();
+                    saveGameLoad();
                     if (!betoltes) {
                         map.mapBuilder();
                     } else {
@@ -93,7 +93,7 @@ public class Menu {
                 }
                 break;
                 case 4: {
-                    System.out.println("Viszlát legközelebb");
+                    System.out.println("Viszlát");
                     System.exit(0);
                 }
                 break;
@@ -109,11 +109,11 @@ public class Menu {
      * Játek állás betöltése.
      */
 
-    public void mentettJatekBetoltes() {
+    public void saveGameLoad() {
         File xml = new File("src//main//resources//" + stat.getNev() + ".xml");
         int valasz = 2;
         if (xml.exists()) {
-            System.out.println("Előző alkalommal elmentetted a játékállást. Akarod betölteni?\n1 = Igen | 2 = Nem");
+            System.out.println("Be akarod töltetni az előző mentést?\n1 = Igen | 2 = Nem");
             valasz = scanner.nextInt();
             switch (valasz) {
                 case 1: {

@@ -13,12 +13,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Springhez kellenek ezek a cuccok.
+ * Spring.
  */
 @Configuration
 public class Config {
 
-    Connection connection = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/PD", "sa", "pass");
+    Connection connection = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
 
     public Config() throws SQLException {
     }

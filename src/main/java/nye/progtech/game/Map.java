@@ -62,11 +62,11 @@ public class Map {
      * Kiirja a tablat.
      */
     private void mapPrinter() {
-        for (int i = 0; i < tabla.length; i++) {
+        for (int[] ints : tabla) {
             for (int j = 0; j < tabla.length; j++) {
-                if (tabla[i][j] == 1) {
+                if (ints[j] == 1) {
                     System.out.print("F" + "  ");
-                } else if (tabla[i][j] == 2) {
+                } else if (ints[j] == 2) {
                     System.out.print("D" + "  ");
                 } else {
                     System.out.print("_" + "  ");
@@ -85,9 +85,9 @@ public class Map {
     }
 
     /**
-     * Ossze van szedve a jatek folyamata loopolva, amig nem nyerunk v vesztunk.
+     * Megy a játék amíg nem nyerünk vagy vesztünk.
      */
-    public void game(Repository pd) throws SQLException, JAXBException {
+    public void game(Repository data) throws SQLException, JAXBException {
         win = false;
         lose = false;
         mapUpdate();
@@ -95,60 +95,60 @@ public class Map {
         while (true) {
             step.step(step.getFox());
             if (step.isExit()) {
-                save(pd);
+                save(data);
                 break;
             }
-            pd.megtettLepes();
+            data.megtettLepes();
             mapUpdate();
             mapPrinter();
-            win(pd);
+            win(data);
             if (win) {
                 break;
             }
             step.step(step.getDog());
             mapUpdate();
             mapPrinter();
-            lose(pd);
+            lose(data);
             if (lose) {
                 break;
             }
         }
-        pd.statValtozas();
+        data.statUpdate();
     }
 
     /**
-     * Megvizsgalja nyertuk-e mar, ha igen elvegzi a muveleteket.
+     * Nyerés esetén lefut.
      */
-    private void win(Repository pd) {
+    private void win(Repository data) {
         if (step.win(step.getFox())) {
             win = true;
-            pd.gyozelem();
+            data.win();
             System.out.println();
-            System.out.println("Győzött a Róka!");
-            System.out.println("Ezen a meccsen megtett lépések száma: " + pd.getLepesekSzama());
+            System.out.println("A róka győzött!");
+            System.out.println("A meccsen megtett lépések száma: " + data.getLepesekSzama());
         }
     }
 
     /**
-     * Megvizsgalja vesztettunk-e mar, ha igen elvegzi a muveleteket.
+     * Vesztés esetén fut le.
      */
-    private void lose(Repository pd) {
+    private void lose(Repository data) {
         Position fox = step.getFox();
         int[][] tabla = step.mapClone();
         if (!step.balrafel(fox, tabla) && !step.balrale(fox, tabla) && !step.jobbrafel(fox, tabla) && !step.jobbrale(fox, tabla)) {
             lose = true;
-            pd.vereseg();
-            System.out.println("Győztek a kutyák!");
-            System.out.println("Ezen a meccsen megtett lépések száma: " + pd.getLepesekSzama());
+            data.lose();
+            System.out.println("A kutyák győztek!");
+            System.out.println("A meccsen megtett lépések száma: " + data.getLepesekSzama());
         }
     }
 
-    private void save(Repository pd) throws JAXBException {
+    private void save(Repository data) throws JAXBException {
         if (step.isSave()) {
             MapSave bts = new MapSave(getMap());
             Save save = new Save();
-            save.save(bts, pd.getNev());
-            System.out.println("Játékállásod elmentve");
+            save.save(bts, data.getNev());
+            System.out.println("Játékállás elmentve");
         } else {
             System.out.println("A játékállás nem lett elmentve");
         }

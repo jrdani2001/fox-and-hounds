@@ -32,7 +32,7 @@ public class Player {
     }
 
     /**
-     * Arra van hogy megnezzuk uj-e a jatekos vagy jatszott-e mar.
+     * Megnézi hogy a játékos létezik e.
      */
     public boolean findPlayer() throws SQLException {
         String find = "SELECT NEV FROM PLAYERDATABASE";
@@ -50,7 +50,7 @@ public class Player {
     }
 
     /**
-     * Ha nem letezik a jatekos, ezzel szurunk be egy ujat.
+     * Ha nem létezik létrehoz egyet.
      */
     public void ujPlayer() throws SQLException {
         String insert = "INSERT INTO PLAYERDATABASE (NEV, JATSZOTTMECCSEK, GYOZELMEK, VERESEGEK, LEPESEK) VALUES(?, 0, 0, 0, 0)";
