@@ -46,17 +46,6 @@ public class Map {
         step.mapBuilder(nxn);
     }
 
-    /*
-    private void checksize(int mapSize) throws MapBuilderException {
-        if (mapSize < 4) {
-            throw new MapBuilderException("A pálya máretánek minimum 4x4 kell lennie");
-        }
-        if (mapSize > 12) {
-            throw new MapBuilderException("A pálya méretének maximum 12x12 kell lennie");
-        } else {
-            throw new MapBuilderException("A tábla mérete megfelelő");
-        }
-    }*/
 
     /**
      * Kiirja a tablat.
@@ -117,7 +106,7 @@ public class Map {
     }
 
     /**
-     * Nyerés esetén lefut.
+     * Nyerés
      */
     private void win(Repository data) {
         if (step.win(step.getFox())) {
@@ -130,7 +119,7 @@ public class Map {
     }
 
     /**
-     * Vesztés esetén fut le.
+     * Vesztés
      */
     private void lose(Repository data) {
         Position fox = step.getFox();

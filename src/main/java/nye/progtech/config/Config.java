@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Config {
 
-    Connection connection = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
+    Connection connection = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/beadando", "admin", "admin");
 
     public Config() throws SQLException {
     }
