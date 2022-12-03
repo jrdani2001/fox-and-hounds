@@ -106,7 +106,7 @@ public class Map {
     }
 
     /**
-     * Nyerés
+     * Nyerés.
      */
     private void win(Repository data) {
         if (step.win(step.getFox())) {
@@ -119,7 +119,7 @@ public class Map {
     }
 
     /**
-     * Vesztés
+     * Vesztés.
      */
     private void lose(Repository data) {
         Position fox = step.getFox();
