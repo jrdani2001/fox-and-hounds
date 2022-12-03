@@ -12,7 +12,7 @@ import nye.progtech.gamesave.Load;
 
 
 /**
- * Menu, 2 fuggosege a jatekos-adatbazis es a tabla. Innen indulnak.
+ * Menu.
  */
 
 public class Menu {
@@ -29,8 +29,7 @@ public class Menu {
     }
 
     /**
-     * Inditjuk-e a jatekot, ha igen akkor megkeresi van-e mentesunk,
-     * ha igen kiirja a statot, ha nem akkor letrehoz egy profilt.
+     * Elinditja a játékot megnézi van e mentés ha nincs létrehoz egyet.
      */
     public void start() throws SQLException {
         System.out.println("FOX AND HOUNDS\n");
