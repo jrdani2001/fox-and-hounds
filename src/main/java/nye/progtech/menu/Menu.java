@@ -57,7 +57,7 @@ public class Menu {
     }
 
     /**
-     * Menu
+     * Menu.
      */
     public void menu() throws SQLException, JAXBException {
         while (true) {
