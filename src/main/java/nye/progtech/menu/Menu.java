@@ -47,7 +47,7 @@ public class Menu {
                 if (player.findPlayer()) {
                     stat.osszStat();
                 } else {
-                    player.ujPlayer();
+                    player.newPlayer();
                 }
                 break;
             } else {

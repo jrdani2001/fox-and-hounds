@@ -52,7 +52,7 @@ public class Player {
     /**
      * Ha nem létezik létrehoz egyet.
      */
-    public void ujPlayer() throws SQLException {
+    public void newPlayer() throws SQLException {
         String insert = "INSERT INTO PLAYERDATABASE (NEV, JATSZOTTMECCSEK, GYOZELMEK, VERESEGEK, LEPESEK) VALUES(?, 0, 0, 0, 0)";
         PreparedStatement st = connection.prepareStatement(insert);
         st.setString(1, nev);
