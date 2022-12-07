@@ -1,4 +1,4 @@
-package nye.progtech.database;
+package nye.progtech.service.database;
 
 import java.sql.*;
 
@@ -33,7 +33,7 @@ public class Repository {
         String command = "CREATE TABLE IF NOT EXISTS PLAYERDATABASE " +
                 "(ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
                 " NEV VARCHAR(255), " +
-                " MECCSEK INTEGER, " +
+                " JATSZOTTMECCSEK INTEGER, " +
                 " GYOZELMEK INTEGER, " +
                 " VERESEGEK INTEGER, " +
                 " LEPESEK INTEGER)";
@@ -52,7 +52,7 @@ public class Repository {
         while (rs.next()) {
             id = rs.getInt("ID");
             nev = rs.getString("NEV");
-            osszMeccsek = rs.getInt("MECCSEK");
+            osszMeccsek = rs.getInt("JATSZOTTMECCSEK");
             osszGyozelmek = rs.getInt("GYOZELMEK");
             osszVereseg = rs.getInt("VERESEGEK");
             osszLepesek = rs.getInt("LEPESEK");

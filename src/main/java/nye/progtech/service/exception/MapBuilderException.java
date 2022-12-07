@@ -1,4 +1,4 @@
-package nye.progtech.exception;
+package nye.progtech.service.exception;
 
 /**
  * Mapbuilder hiba kezelés.

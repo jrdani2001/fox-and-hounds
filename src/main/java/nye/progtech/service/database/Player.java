@@ -1,4 +1,4 @@
-package nye.progtech.database;
+package nye.progtech.service.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -38,11 +38,11 @@ public class Player {
         String find = "SELECT NEV FROM PLAYERDATABASE";
         Statement st = connection.createStatement();
         ResultSet resultSet = st.executeQuery(find);
-        String nevv;
+        String name;
         int i = 0;
         while (resultSet.next()) {
-            nevv = resultSet.getString("NEV");
-            if (nevv.equals(nev)) {
+            name = resultSet.getString("NEV");
+            if (name.equals(nev)) {
                 i++;
             }
         }

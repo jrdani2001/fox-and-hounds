@@ -1,9 +1,9 @@
-package nye.progtech.menu;
+package nye.progtech.service.menu;
 
 import java.sql.SQLException;
 
 import jakarta.xml.bind.JAXBException;
-import nye.progtech.database.Repository;
+import nye.progtech.service.database.Repository;
 
 
 /**

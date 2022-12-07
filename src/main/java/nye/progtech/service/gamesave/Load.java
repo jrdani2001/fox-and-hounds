@@ -1,12 +1,11 @@
-package nye.progtech.gamesave;
+package nye.progtech.service.gamesave;
 
 import java.io.File;
 
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
-import nye.progtech.game.Map;
-
+import nye.progtech.service.game.Map;
 
 
 /**

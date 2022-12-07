@@ -1,12 +1,12 @@
-package nye.progtech.game;
+package nye.progtech.service.game;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
 import jakarta.xml.bind.JAXBException;
-import nye.progtech.database.Repository;
-import nye.progtech.gamesave.MapSave;
-import nye.progtech.gamesave.Save;
+import nye.progtech.service.database.Repository;
+import nye.progtech.service.gamesave.MapSave;
+import nye.progtech.service.gamesave.Save;
 
 
 

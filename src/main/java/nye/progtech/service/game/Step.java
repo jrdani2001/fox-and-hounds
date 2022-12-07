@@ -1,4 +1,4 @@
-package nye.progtech.game;
+package nye.progtech.service.game;
 
 
 import java.util.Random;

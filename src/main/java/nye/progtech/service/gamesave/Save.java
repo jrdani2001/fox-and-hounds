@@ -1,4 +1,4 @@
-package nye.progtech.gamesave;
+package nye.progtech.service.gamesave;
 
 import java.io.File;
 

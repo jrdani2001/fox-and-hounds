@@ -1,4 +1,4 @@
-package nye.progtech.gamesave;
+package nye.progtech.service.gamesave;
 
 import jakarta.xml.bind.annotation.XmlRootElement;
 

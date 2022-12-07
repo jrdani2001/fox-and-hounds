@@ -1,14 +1,14 @@
-package nye.progtech.config;
+package nye.progtech.service.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import nye.progtech.database.Player;
-import nye.progtech.database.Repository;
-import nye.progtech.game.Map;
-import nye.progtech.menu.Menu;
-import nye.progtech.menu.Run;
+import nye.progtech.service.database.Player;
+import nye.progtech.service.database.Repository;
+import nye.progtech.service.game.Map;
+import nye.progtech.service.menu.Menu;
+import nye.progtech.service.menu.Run;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Config {
 
-    Connection connection = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/beadando", "admin", "admin");
+    Connection connection = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
 
     public Config() throws SQLException {
     }
