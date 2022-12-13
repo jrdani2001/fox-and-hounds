@@ -1,8 +1,11 @@
 package nye.progtech.model;
 
-import java.lang.reflect.Array;
+
 import java.util.Arrays;
 
+/**
+ * Map adat osztálya.
+ */
 public class MapVO {
 
     public static MapVOBuilder builder() {
@@ -17,6 +20,7 @@ public class MapVO {
         this.mapSize = mapSize;
         this.map = deepcopy(map);
     }
+
     public int getMapSize() {
         return mapSize;
     }
@@ -37,20 +41,22 @@ public class MapVO {
         return result;
     }
 
-
+    /**
+     * Mapbuilder.
+     */
 
     public static final class MapVOBuilder {
         private int mapSize;
         private int[][] map;
 
-        private MapVOBuilder(){
+        private MapVOBuilder() {
         }
 
         public static MapVOBuilder builder() {
             return new MapVOBuilder();
         }
 
-        public MapVOBuilder withMapSize(int mapSize){
+        public MapVOBuilder withMapSize(int mapSize) {
             this.mapSize = mapSize;
             return this;
         }

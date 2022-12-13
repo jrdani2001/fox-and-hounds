@@ -74,7 +74,6 @@ public class Menu {
                     if (!betoltes) {
                         map.mapBuilder();
                     } else {
-                        //load
                         Load load = new Load();
                         Load.load(stat.getNev(), map);
                         map.load();

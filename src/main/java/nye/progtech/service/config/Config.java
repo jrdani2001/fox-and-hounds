@@ -8,7 +8,7 @@ import nye.progtech.service.database.Player;
 import nye.progtech.service.database.Repository;
 import nye.progtech.service.game.Map;
 import nye.progtech.service.menu.Menu;
-import nye.progtech.service.menu.Run;
+import nye.progtech.service.run.Run;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
