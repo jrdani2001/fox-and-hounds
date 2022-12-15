@@ -24,6 +24,21 @@ public class Config {
     }
 
     @Bean
+    Player player() {
+        return new Player(connection, stat());
+    }
+
+    @Bean
+    Repository stat() {
+        return new Repository(connection);
+    }
+
+    @Bean
+    Map board() {
+        return new Map();
+    }
+
+    @Bean
     Menu menu() {
         return new Menu(stat(), player(), board());
     }
@@ -33,18 +48,4 @@ public class Config {
         return new Run(menu(), stat());
     }
 
-    @Bean
-    Repository stat() {
-        return new Repository(connection);
-    }
-
-    @Bean
-    Player player() {
-        return new Player(connection, stat());
-    }
-
-    @Bean
-    Map board() {
-        return new Map();
-    }
 }

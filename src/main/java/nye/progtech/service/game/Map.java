@@ -46,10 +46,10 @@ public class Map {
         step.mapBuilder(nxn);
     }
 
-
     /**
      * Kiirja a tablat.
      */
+
     private void mapPrinter() {
         for (int[] ints : tabla) {
             for (int j = 0; j < tabla.length; j++) {
@@ -66,12 +66,7 @@ public class Map {
         System.out.println();
     }
 
-    /**
-     * Masolja a tablat.
-     */
-    private void mapUpdate() {
-        tabla = step.mapClone();
-    }
+
 
     /**
      * Megy a játék amíg nem nyerünk vagy vesztünk.
@@ -105,18 +100,6 @@ public class Map {
         data.statUpdate();
     }
 
-    /**
-     * Nyerés.
-     */
-    private void win(Repository data) {
-        if (step.win(step.getFox())) {
-            win = true;
-            data.win();
-            System.out.println();
-            System.out.println("A róka győzött!");
-            System.out.println("A meccsen megtett lépések száma: " + data.getLepesekSzama());
-        }
-    }
 
     /**
      * Vesztés.
@@ -141,6 +124,27 @@ public class Map {
         } else {
             System.out.println("A játékállás nem lett elmentve");
         }
+    }
+
+    /**
+     * Nyerés.
+     */
+    private void win(Repository data) {
+        if (step.win(step.getFox())) {
+            win = true;
+            data.win();
+            System.out.println();
+            System.out.println("A róka győzött!");
+            System.out.println("A meccsen megtett lépések száma: " + data.getLepesekSzama());
+        }
+    }
+
+    /**
+     * Masolja a tablat.
+     */
+
+    private void mapUpdate() {
+        tabla = step.mapClone();
     }
 
     public int[][] getMap() {

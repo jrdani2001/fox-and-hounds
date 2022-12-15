@@ -14,11 +14,6 @@ public class Run {
     Menu menu;
     Repository stat;
 
-    public Run(Menu menu, Repository stat) {
-        this.menu = menu;
-        this.stat = stat;
-    }
-
     /**
      * Futtatás.
      */
@@ -26,5 +21,10 @@ public class Run {
         stat.createTableIfNotExists();
         menu.start();
         menu.menu();
+    }
+
+    public Run(Menu menu, Repository stat) {
+        this.menu = menu;
+        this.stat = stat;
     }
 }

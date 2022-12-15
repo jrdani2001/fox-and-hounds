@@ -65,6 +65,25 @@ public class Repository {
         }
     }
 
+
+    /**
+     * Kilistazza a jatekosokat.
+     */
+    public void scoreBoard() throws SQLException {
+        String s = "SELECT NEV, GYOZELMEK FROM PLAYERDATABASE ORDER BY GYOZELMEK DESC";
+        Statement st = connection.createStatement();
+        ResultSet rs = st.executeQuery(s);
+        int i = 1;
+        System.out.printf("%10s  |  %s\n", "Név", "Győzelmek");
+        while (rs.next()) {
+            String nev = rs.getString("NEV");
+            int gyozelmek = rs.getInt("GYOZELMEK");
+            System.out.printf("%d.: %7s | %d \n", i, nev, gyozelmek);
+            i++;
+        }
+    }
+
+
     /**
      * Lekéri az eredményeket és utáni frissiti.
      */
@@ -95,14 +114,6 @@ public class Repository {
     }
 
     /**
-     * Ha a játékos nyer akkor megnöveljük a győzelmek számát.
-     */
-    public void win() {
-        gyozelmekSzama++;
-        jatszottMeccsekSzama++;
-    }
-
-    /**
      * Vereség esetén a vesztések számát növeljük.
      */
     public void lose() {
@@ -111,21 +122,14 @@ public class Repository {
     }
 
     /**
-     * Kilistazza a jatekosokat.
+     * Ha a játékos nyer akkor megnöveljük a győzelmek számát.
      */
-    public void scoreBoard() throws SQLException {
-        String s = "SELECT NEV, GYOZELMEK FROM PLAYERDATABASE ORDER BY GYOZELMEK DESC";
-        Statement st = connection.createStatement();
-        ResultSet rs = st.executeQuery(s);
-        int i = 1;
-        System.out.printf("%10s  |  %s\n", "Név", "Győzelmek");
-        while (rs.next()) {
-            String nev = rs.getString("NEV");
-            int gyozelmek = rs.getInt("GYOZELMEK");
-            System.out.printf("%d.: %7s | %d \n", i, nev, gyozelmek);
-            i++;
-        }
+    public void win() {
+        gyozelmekSzama++;
+        jatszottMeccsekSzama++;
     }
+
+
 
     /**
      * Noveljuk a lepesek szamat.

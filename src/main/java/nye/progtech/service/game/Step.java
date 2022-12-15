@@ -54,27 +54,7 @@ public class Step {
         }
     }
 
-    /**
-     * Pozició keresés.
-     *
-     * @param deepcopy tábla másolata.
-     */
-    public void positionfinder(int[][] deepcopy) {
-        tabla = deepcopy;
-        dog = new Position[tabla.length / 2];
-        int kutyaszamlalo = 0;
-        for (int i = 0; i < tabla.length; i++) {
-            for (int j = 0; j < tabla.length; j++) {
-                if (tabla[i][j] == DOG) {
-                    dog[kutyaszamlalo] = new Position(i, j, DOG);
-                    kutyaszamlalo++;
-                }
-                if (tabla[i][j] == FOX) {
-                    fox = new Position(i, j, FOX);
-                }
-            }
-        }
-    }
+
 
     /**
      * Lép a táblán .
@@ -204,10 +184,25 @@ public class Step {
     }
 
     /**
-     * Lemasolja a tablat.
+     * Pozició keresés.
+     *
+     * @param deepcopy tábla másolata.
      */
-    public int[][] mapClone() {
-        return tabla.clone();
+    public void positionfinder(int[][] deepcopy) {
+        tabla = deepcopy;
+        dog = new Position[tabla.length / 2];
+        int kutyaszamlalo = 0;
+        for (int i = 0; i < tabla.length; i++) {
+            for (int j = 0; j < tabla.length; j++) {
+                if (tabla[i][j] == DOG) {
+                    dog[kutyaszamlalo] = new Position(i, j, DOG);
+                    kutyaszamlalo++;
+                }
+                if (tabla[i][j] == FOX) {
+                    fox = new Position(i, j, FOX);
+                }
+            }
+        }
     }
 
     /**
@@ -222,6 +217,15 @@ public class Step {
     }
 
     /**
+     * Lemasolja a tablat.
+     */
+    public int[][] mapClone() {
+        return tabla.clone();
+    }
+
+
+
+    /**
      * balra fel lépés.
      */
     public boolean balrafel(Position x, int[][] tabla) {
@@ -230,6 +234,27 @@ public class Step {
         if (s - 1 >= 0) {
             if (o - 1 >= 0) {
                 if (tabla[s - 1][o - 1] == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Jobbra fel lépés.
+     */
+    public boolean jobbrafel(Position x, int[][] tabla) {
+        int s = x.sor;
+        int o = x.oszlop;
+        if (s - 1 >= 0) {
+            if (o + 1 < tabla.length) {
+                if (tabla[s - 1][o + 1] == 0) {
                     return true;
                 } else {
                     return false;
@@ -263,26 +288,6 @@ public class Step {
         }
     }
 
-    /**
-     * Jobbra fel lépés.
-     */
-    public boolean jobbrafel(Position x, int[][] tabla) {
-        int s = x.sor;
-        int o = x.oszlop;
-        if (s - 1 >= 0) {
-            if (o + 1 < tabla.length) {
-                if (tabla[s - 1][o + 1] == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
 
     /**
      * jobbra le lépés.
@@ -349,13 +354,6 @@ public class Step {
     }
 
     /**
-     * Visszaadja a rokat.
-     */
-    public Position getFox() {
-        return fox;
-    }
-
-    /**
      * Vissza ad egy kutyát..
      */
     public Position getDog() {
@@ -363,11 +361,19 @@ public class Step {
         return dog[i];
     }
 
+    /**
+     * Visszaadja a rokat.
+     */
+
+    public boolean isSave() {
+        return save;
+    }
+
     public boolean isExit() {
         return exit;
     }
 
-    public boolean isSave() {
-        return save;
+    public Position getFox() {
+        return fox;
     }
 }

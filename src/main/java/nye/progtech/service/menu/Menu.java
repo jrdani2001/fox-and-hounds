@@ -59,13 +59,14 @@ public class Menu {
     /**
      * Menu.
      */
+
     public void menu() throws SQLException, JAXBException {
         while (true) {
             System.out.println();
-            System.out.println("1 = Játék indítása");
-            System.out.println("2 = Statisztikák");
-            System.out.println("3 = Scoreboard");
-            System.out.println("4 = Kilépés");
+            System.out.println("1 = játék elindítása");
+            System.out.println("2 = statisztikák");
+            System.out.println("3 = eredménytábla");
+            System.out.println("4 = kilépés");
             System.out.println();
             int valasztas = scanner.nextInt();
             switch (valasztas) {
@@ -91,7 +92,7 @@ public class Menu {
                 }
                 break;
                 case 4: {
-                    System.out.println("Viszlát");
+                    System.out.println("Hello");
                     System.exit(0);
                 }
                 break;
@@ -111,11 +112,11 @@ public class Menu {
         File xml = new File("src//main//resources//" + stat.getNev() + ".xml");
         int valasz = 2;
         if (xml.exists()) {
-            System.out.println("Be akarod töltetni az előző mentést?\n1 = Igen | 2 = Nem");
+            System.out.println("Be akarod tölteni az előző mentést?\n 1 = Igen | 2 = Nem");
             valasz = scanner.nextInt();
             switch (valasz) {
                 case 1: {
-                    System.out.println("Betöltés");
+                     System.out.println("Betöltés");
                     betoltes = true;
 
                 } break;
